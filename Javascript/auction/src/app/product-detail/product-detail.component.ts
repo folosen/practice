@@ -7,8 +7,10 @@ import { Product, ProductService, Comment } from '../shared/product.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product;
-  comments: Comment [];
+  public product: Product;
+  public comments: Comment [];
+  public newRating: number = 5;
+  public newComment: string = '';
   constructor(private routeInfo: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit() {
@@ -18,4 +20,8 @@ export class ProductDetailComponent implements OnInit {
     console.log(this.product);
   }
 
+  addComment() {
+    const comment = new Comment(0, this.product.id, new Date().toISOString(), 'someone', this.newRating, this.newComment);
+    this.comments.unshift(comment);
+  }
 }
