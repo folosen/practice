@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, AbstractControl, Validators } from '../../../node_modules/@angular/forms';
+import { mobileValidator, equalValidator, mobileAsyncValidator } from '../validator/validators';
 
 @Component({
   selector: 'app-reactive-regist',
@@ -8,26 +9,27 @@ import { FormGroup, FormControl, FormBuilder, AbstractControl, Validators } from
 })
 export class ReactiveRegistComponent implements OnInit {
   formModel: FormGroup;
-  mobileValidator(control: AbstractControl): {[key: string]: any} {
-    return null;
-  }
   constructor(fb: FormBuilder) {
     this.formModel = fb.group({
       username: ['', [Validators.required, Validators.minLength(6)]],
-      mobile: [''],
+      mobile: ['', mobileValidator, mobileAsyncValidator],
       passwordsGroup: fb.group({
-        password: [''],
+        password: ['', Validators.minLength(6)],
         pconfirm: ['']
+      }, {
+        validator: equalValidator
       })
     });
   }
 
   onSubmit() {
-    const isValid: boolean = this.formModel.get('username').valid;
-    const error: any = this.formModel.get('username').errors;
-    console.log('username的校验结果：' + isValid);
-    console.log('username的错误信息：' + JSON.stringify(error));
-    console.log(this.formModel.value);
+    // const isValid: boolean = this.formModel.get('username').valid;
+    // const error: any = this.formModel.get('username').errors;
+    // console.log('username的校验结果：' + isValid);
+    // console.log('username的错误信息：' + JSON.stringify(error));
+    if (this.formModel.valid) {
+      console.log(this.formModel.value);
+    }
   }
 
   ngOnInit() {
