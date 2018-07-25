@@ -1,8 +1,8 @@
-<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
-  <div>用户名:<input #username="ngModel" ngModel name="username" type="text"></div>
-  <div>手机号:<input ngModel name="mobile" type="number"></div>
-  <div ngModelGroup="passwordsGroup">
-      <div>密码:<input ngModel name="password" type="password"></div>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value, myForm.valid)" novalidate>
+  <div>用户名:<input #username="ngModel" ngModel  required minlength="6" name="username" type="text"></div>
+  <div>手机号:<input ngModel name="mobile" appMobile type="number"></div>
+  <div ngModelGroup="passwordsGroup" appEqual>
+      <div>密码:<input ngModel minlength="6" name="password" type="password"></div>
       <div>确认密码:<input ngModel name="pconfirm" type="password"></div>
   </div>  
   <button type="submit">注册</button>
