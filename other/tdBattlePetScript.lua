@@ -21,5 +21,5 @@ if [  enemy.hp > 600 & !enemy.speed.fast ]
 endif
 
 ability(#2) [ self.ability(#2).usable ]
-ability(#3) [ self.ability(#3).usable ]
+ability(#3) [ self.ability(#3).usable & enemy.speed.fast ]
 ability(#1)
