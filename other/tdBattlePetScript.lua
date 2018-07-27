@@ -4,15 +4,16 @@ endif
 if [ round = 2 ]
     change(#2)
 endif
-if [ round > 2 & self.dead]
+standby(待命) [ self.aura(昏迷).exists ]
+if [ round > 2 & self.dead ]
     change(#3)
 endif
-if [ round > 2 & self.dead]
-    quit(认输)[ self(#3).dead ]
+if [ round > 2 & self.dead ]
+    quit(认输) [ self(#3).dead ]
 endif
-if [ round > 2 & enemy.hp > 600]
-    use(#1)
+if [  enemy.hp > 600 ]
+    ability(#1)
 endif
-use(#2)[enemy.ability(#2).usable]
-use(#3)[enemy.ability(#3).usable]
-use(#1)
+ability(#2) [ self.ability(#2).usable ]
+ability(#3) [ self.ability(#3).usable ]
+ability(#1)
