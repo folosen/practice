@@ -8,7 +8,7 @@ if [ round > 2 & self.dead]
     change(#3)
 endif
 if [ round > 2 & self.dead]
-    quit(认输)[ self(#3).played ]
+    quit(认输)[ self(#3).dead ]
 endif
 if [ round > 2 & enemy.hp > 600]
     use(#1)
