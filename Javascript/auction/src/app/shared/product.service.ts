@@ -23,16 +23,20 @@ export class ProductService {
 
   constructor() { }
 
+  getAllCategories(): string[] {
+    return ['电子产品', '硬件设备', '图书'];
+  }
+
   getProducts(): Product[] {
     return this.products;
   }
 
   getProduct(id: number) {
-    return this.products.find((product) => product.id == id);
+    return this.products.find((product) => product.id === id || product.id.toString() === id.toString() );
   }
 
   getCommentsForProductId (id: number): Comment[] {
-    return this.comments.filter((comment: Comment) => comment.productId == id);
+    return this.comments.filter((comment: Comment) => comment.productId === id || comment.productId.toString() === id.toString() );
   }
 
 }
