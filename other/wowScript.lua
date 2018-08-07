@@ -136,14 +136,12 @@ dm.MoveTo DX+10,DY
 Delay 20
 dm.RightClick 
 Delay 20
+//鼠标移动到右下角
 dm.MoveTo nX1,nY1
 //重置所有坐标数据 方便下次判断
 DX=0:DY=0
 x = nX : y = nY : x1 = nX1 : y1 = nY1
 //加点延时 鱼漂有个渐隐过程
-
-//Delay 1000
-//鼠标移动到左上角 免得干扰
 
 Delay 1000
 //按1键甩鱼竿
