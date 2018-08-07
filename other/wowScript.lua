@@ -63,12 +63,17 @@ Goto a
 End If
             
 //自定义            
-Dim DX,DY,x,y,x1,y1,sT,eT,tc
+Dim DX,DY,x,y,x1,y1,sT,eT,tc,nX,nY,nX1,nY1
+//屏幕侦测范围
+nX = 18
+nY = 58
+nX1 = 888
+nY1 = 494
 //Call 注册()//大漠注册
 //------大漠注册-------------------------------------------------------------
 //DMPath变量保存的是大漠释放到的文件夹，这个文件夹也会用来放脚本用到的截图等东西。
 //同时，大漠在后面还会用的这个文件夹我名字，所以放在变量中方便调用。
-DMPath = "d:\DM3\"'注册大漠的文件夹
+DMPath = "d:\DM3\"'注册大漠的文件夹"
 //
 Call 大漠注册D(DMPath)
 //------------------
@@ -103,7 +108,7 @@ End Function
 
 DX=0:DY=0
 //下面这个找色坐标根据个人需要自行调节
-x = 18 : y = 58 : x1 = 888 : y1 = 494
+x = nX : y = nY : x1 = nX1 : y1 = nY1
 //时间
 sT = int(Plugin.Sys.GetTime()) : eT = int(Plugin.Sys.GetTime())
 tc = int(eT - sT)
@@ -113,10 +118,9 @@ eT = int(Plugin.Sys.GetTime())
 tc = int(eT - sT)
 If tc >= 22000 Then 
 	DX = 0 : DY = 0
-	x = 18 : y = 58 : x1 = 888 : y1 = 494
+	x = nX : y = nY : x1 = nX1 : y1 = nY1
 	dm.KeyPress 49
 	sT = int(Plugin.Sys.GetTime())
-	TracePrint tc
 End If
 If intX1 >= 0 and intY1 >= 0  Then 
 //判断DX,DY等0 就赋值第一次找到的坐标给他们,用来对比判断鱼上钩后的新坐标,最后鼠标还要移动到DX,YD上点击收钩
@@ -132,10 +136,10 @@ dm.MoveTo DX+10,DY
 Delay 20
 dm.RightClick 
 Delay 20
-dm.MoveTo 888,494
+dm.MoveTo nX1,nY1
 //重置所有坐标数据 方便下次判断
 DX=0:DY=0
-x = 18 : y = 58 : x1 = 888 : y1 = 494
+x = nX : y = nY : x1 = nX1 : y1 = nY1
 //加点延时 鱼漂有个渐隐过程
 
 //Delay 1000
