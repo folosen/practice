@@ -63,12 +63,13 @@ Goto a
 End If
             
 //自定义            
-Dim DX,DY,x,y,x1,y1,sT,eT,tc,nX,nY,nX1,nY1
+Dim DX,DY,x,y,x1,y1,sT,eT,tc,nX,nY,nX1,nY1,wT
 //屏幕侦测范围
-nX = 18
-nY = 58
-nX1 = 888
-nY1 = 494
+nX = 151
+nY = 272
+nX1 = 881
+nY1 = 503
+wT = 20
 //Call 注册()//大漠注册
 //------大漠注册-------------------------------------------------------------
 //DMPath变量保存的是大漠释放到的文件夹，这个文件夹也会用来放脚本用到的截图等东西。
@@ -113,7 +114,8 @@ x = nX : y = nY : x1 = nX1 : y1 = nY1
 sT = int(Plugin.Sys.GetTime()) : eT = int(Plugin.Sys.GetTime())
 tc = int(eT - sT)
 Do
-dm_ret = dm.FindColor(x, y, x1, y1, "9d3316-101010|983216-101010|963216-101010|993317-101010|963216-101010|932813-101010", 1.0, 5, intX1, intY1)
+//993a30,e73a17-202020|5b7ec4-202020
+dm_ret = dm.FindColor(x, y, x1, y1, "e73a17-202020", 1.0, 5, intX1, intY1)
 eT = int(Plugin.Sys.GetTime())
 tc = int(eT - sT)
 If tc >= 22000 Then 
@@ -129,13 +131,16 @@ If DX = 0 or DY = 0 Then DX=intX1:DY=intY1
 x=DX-30:y=DY-30:x1=DX+50:y1=DY+50
 //判断第一次的坐标和当前的新坐标,距离差距,如果有鱼上钩鱼漂晃动了一下,新坐标和第一次的坐标就有个距离差
 //利用距离差来判断 我测试了一会感觉9比较合适我,如果不合适你 自行改动
-If abs(intX1 - DX)>=9 Then 
+If abs(intX1 - DX)>=7 Then 
 //鱼漂闪动上钩后的动作 
 //右键点第一次的坐标位置(鱼漂)
-dm.MoveTo DX+10,DY
+wT = Int((2000 - 20 + 1) * Rnd() + 20)
 Delay 20
+dm.MoveTo DX + 10, DY
+Delay wT
 dm.RightClick 
 Delay 20
+dm.KeyPress 50
 //鼠标移动到右下角
 dm.MoveTo nX1,nY1
 //重置所有坐标数据 方便下次判断
@@ -153,3 +158,4 @@ End If
 End If
 Delay 100
 loop
+
