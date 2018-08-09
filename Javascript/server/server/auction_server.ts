@@ -1,4 +1,5 @@
 import * as express from 'express';
+import {Server} from 'ws';
 
 export class Product {
   constructor(
@@ -35,3 +36,8 @@ app.get('/products/:id', (req, res) => {
 const server = app.listen(8000, 'localhost', () =>{
     console.log('服务器已启动，地址是： http://localhost:8000')
 });
+
+const wsServer = new Server({port: 8085});
+wsServer.on('connection', websocket => {
+    websocket.send('这个消息是服务器主动推送的')
+})
