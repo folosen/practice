@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     res.send('Hello Express');
 });
 
-app.get('/products/:id', (req, res) => {
+app.get('/monitorComponent/getTable', (req, res) => {
     res.json(
         {"success":true,
         "message":"查询成功",
