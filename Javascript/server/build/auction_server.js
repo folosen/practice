@@ -23,13 +23,28 @@ var products = [
     new Product(6, '第六个商品', 6.99, 2.5, '这是六个商品，是我在学习慕课网Angular入门实战时创建的', ['图书'])
 ];
 var app = express();
+app.post('/monitorComponent/getBasicInfo', function (req, res) {
+    res.json({"success":true,"message":"查询成功","timestamp":1534149809350,"resultCode":"200","data":{"asc_code":"4102028",
+    "asc_name":"上海怡通汽车销售服务有限公司浦东分公司","road_code":"310115","provincecode":"310115013243"}})
+});
 app.post('/monitorComponent/logout', function (req, res) {
     res.json({ "success": true,
     "message": "查询成功",
     "timestamp": 1534153513145,
-    "resultCode": "200"})
+    "resultCode": "200",
+    "data":{"userName": "1","token":"2","userId":"3"}
+    })
+});
+app.post('/monitorComponent/loginByUser', function (req, res) {
+    res.json({ "success": true,
+    "message": "查询成功",
+    "timestamp": 1534153513145,
+    "resultCode": "200",
+    "data":{"userName": "1","token":"2","userId":"3"}
+    })
 });
 app.get('/monitorComponent/getTable', function (req, res) {
+    console.log(req.query.nodeId)
     // res.json({ "success": true,
     //     "message": "查询成功",
     //     "timestamp": 1534153513145,
@@ -52,16 +67,21 @@ app.get('/monitorComponent/getTable', function (req, res) {
     //             ], "rowCount": "11"
     //         }
     //     } });
-    res.json({
-        "success":true,
-        "message":"查询成功",
-        "timestamp":1534218358466,
-        "resultCode":"200",
-        "data":{"no":"no1","name":"每天数据发送查询","id":1,
-        "tableList":{
-            "details":[
-                {"id":"3","start_time":"","end_time":"2018-08-11 10:34:40","monitor_point":"getAccessToken","req_text":"","msg_text":"","asc_code":"4122012","error_code":"999999","error_desc":"","quantity":"0","snum":"0","fnum":"0","asc_name":"赤峰金众汽车销售有限公司","level":"1-标准服务商","city":"东内蒙古","area":"红山区"}],"rowCount":"13"}}});
-});
+    if( req.query.nodeId == 'no2'){
+        res.json({"success":true,"message":"查询成功","timestamp":1534218563643,"resultCode":"200","data":{"no":"no2","name":"数据发送统计查询","id":2,"tableList":{"details":[{"type":"总数","count":"1"},{"type":"发送成功数量","count":"0"}],"rowCount":"2"}}});    
+    }else{
+        res.json({
+            "success":true,
+            "message":"查询成功",
+            "timestamp":1534218358466,
+            "resultCode":"200",
+            "data":{"no":"no1","name":"每天数据发送查询","id":1,
+            "tableList":{
+                "details":[
+                    {"id":"3","start_time":"","end_time":"2018-08-11 10:34:40","monitor_point":"getAccessToken","req_text":"","msg_text":"","asc_code":"4122012","error_code":"999999","error_desc":"","quantity":"0","snum":"0","fnum":"0","asc_name":"赤峰金众汽车销售有限公司","level":"1-标准服务商","city":"东内蒙古","area":"红山区"}],"rowCount":"13"}}});
+    
+    }
+    });
 var server = app.listen(8000, 'localhost', function () {
     console.log('服务器已启动，地址是： http://localhost:8000');
 });
