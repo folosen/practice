@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductService } from './shared/product.service';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { FilterPipe } from './pipe/filter.pipe';
 const routeConfig: Routes = [
   {path: '', component: HomeComponent},
@@ -38,6 +39,7 @@ const routeConfig: Routes = [
     BrowserModule,
     RouterModule.forRoot(routeConfig),
     FormsModule,
+    HttpModule,
     ReactiveFormsModule
   ],
   providers: [ProductService],
