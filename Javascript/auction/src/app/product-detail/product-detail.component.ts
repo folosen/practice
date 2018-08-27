@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, ProductService, Comment } from '../shared/product.service';
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -16,9 +17,12 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     const ProductId: number = this.routeInfo.snapshot.params['productId'];
-    this.product = this.productService.getProduct(ProductId);
-    this.comments = this.productService.getCommentsForProductId(ProductId);
-    console.log(this.product);
+    this.productService.getProduct(ProductId).subscribe(
+      product => this.product = product
+    );
+    this.productService.getCommentsForProductId(ProductId).subscribe(
+      comments => this.comments = comments
+    );
   }
 
   addComment() {
