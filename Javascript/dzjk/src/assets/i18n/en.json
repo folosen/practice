@@ -1,4 +1,11 @@
 {
+    "supplier": {
+      "supplierDetails": "supplierDetails",
+      "startTime": "start time",
+      "endTime": "end time",
+      "status": "status",
+      "supplierName": "supplier name"
+    },
     "globalLayout": {
       "dashboard": "Dashboard",
       "inventoryControl": "Inventory Control",

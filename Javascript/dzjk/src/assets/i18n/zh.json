@@ -1,4 +1,11 @@
 {
+  "supplier": {
+    "supplierDetails": "监控详情",
+    "startTime": "开始时间",
+    "endTime": "结束时间",
+    "status": "状态",
+    "supplierName": "服务商名称"
+  },
   "globalLayout": {
     "dashboard": "仪表盘",
     "inventoryControl": "库存管理",
