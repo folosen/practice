@@ -42,7 +42,7 @@ import { inventoryRoutes } from './inventory.routes';
     NewInboundReceiptComponent,
     NewOutboundReceiptComponent
   ],
-  providers:[
+  providers: [
     InventoryService
   ]
 })

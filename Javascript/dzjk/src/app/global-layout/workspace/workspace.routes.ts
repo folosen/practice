@@ -5,7 +5,11 @@ export const workspaceRoutes = [
     path: '',
     component: WorkspaceComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'supplier', pathMatch: 'full' },
+      {
+        path: 'supplier',
+        loadChildren: '../../bz-modules/supplier/supplier.module#supplierModule'
+      },
       {
         path: 'dashboard',
         loadChildren: '../../bz-modules/dashboard/dashboard.module#DashboardModule'
