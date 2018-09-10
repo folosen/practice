@@ -11,6 +11,7 @@ export class SupplierDetailsComponent implements OnInit {
   public items: Array<any>;
   public tbFirst = 0;
   public totalRecords = 0;
+  public pageConfig = {totalNum: 100, curPage: 1};
   public supplierStatus = {name: '全部', value: -1};
   public status = [{name: '全部', value: -1}, {name: '成功', value: 1}, {name: '失败', value: 0}];
   constructor() { }

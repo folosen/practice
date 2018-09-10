@@ -11,6 +11,7 @@ import {InputTextModule} from 'primeng/inputtext';
 
 import { SupplierDetailsComponent } from './supplier-details/supplier-details.component';
 import { supplierRoutes } from './supplier.routes';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { supplierRoutes } from './supplier.routes';
         RouterModule.forChild(supplierRoutes)
     ],
     declarations: [
-        SupplierDetailsComponent
+        SupplierDetailsComponent,
+        PaginationComponent
     ]
 })
 export class SupplierModule {
