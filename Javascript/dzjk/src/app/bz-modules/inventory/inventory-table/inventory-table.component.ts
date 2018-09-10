@@ -34,7 +34,7 @@ export class InventoryTableComponent implements OnInit {
     private messageService: MessageService,
     private warehouseService: WarehouseService,
     private categoryService: CategoryService,
-    private inventoryService:InventoryService) {
+    private inventoryService: InventoryService) {
 
   }
 
@@ -43,6 +43,7 @@ export class InventoryTableComponent implements OnInit {
     this.endDate = new Date();
 
     this.warehouseService.getWarehouses().subscribe((warehouses) => {
+      console.log(warehouses)
       this.warehouses = warehouses;
     });
 

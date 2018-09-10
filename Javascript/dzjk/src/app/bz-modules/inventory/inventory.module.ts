@@ -46,6 +46,5 @@ import { inventoryRoutes } from './inventory.routes';
     InventoryService
   ]
 })
-export class InventoryModule { 
-  
+export class InventoryModule {
 }

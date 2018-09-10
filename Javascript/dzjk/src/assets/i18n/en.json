@@ -1,12 +1,24 @@
 {
     "supplier": {
-      "supplierDetails": "supplierDetails",
-      "startTime": "start time",
-      "endTime": "end time",
-      "status": "status",
-      "supplierName": "supplier name"
+      "index": "Index",
+      "supplierDetails": "Supplier Details",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "status": "Status",
+      "search": "Search",
+      "export": "Export List",
+      "supplierName": "supplier name",
+      "supplierCode": "Supplier Code",
+      "supplierLevel": "Supplier Level",
+      "provinceCode": "Province Code",
+      "quantity": "Quantity",
+      "sussesQuantity": "Susses Quantity",
+      "errorQuantity": "Error Quantity",
+      "uploadDate": "Upload Date",
+      "message": "Message"
     },
     "globalLayout": {
+      "supplierDetails": "Supplier Details",
       "dashboard": "Dashboard",
       "inventoryControl": "Inventory Control",
       "baseData": "Base Data",

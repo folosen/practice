@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectItem } from 'primeng/primeng';
-import { WarehouseService } from "../../../common/services/warehouse.service";
-import { CategoryService } from "../../../common/services/category.service";
+import { WarehouseService } from '../../../common/services/warehouse.service';
+import { CategoryService } from '../../../common/services/category.service';
 import { InboundReceiptService } from '../../../common/services/inbound-receipt.service';
 
 @Component({
@@ -29,9 +29,9 @@ export class InboundReceiptTableComponent implements OnInit {
     this.endDate = new Date();
 
     this.warehouseService.getWarehouses().subscribe(warehouses => {
+      console.log(warehouses)
       this.warehouses = warehouses;
     });
-    
     // this.inboundReceiptService.inboundRecords.subscribe((items) => {
     //   this.items = items;
     // });

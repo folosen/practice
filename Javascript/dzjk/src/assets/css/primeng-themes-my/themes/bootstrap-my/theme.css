@@ -2209,3 +2209,23 @@ p-selectbutton.ng-dirty.ng-invalid .ui-button,
 p-togglebutton.ng-dirty.ng-invalid .ui-button {
     border-bottom-color: #e13131;
 }
+/* 表格自定义 */
+.ui-datatable .ui-datatable-thead>tr>th, .ui-datatable .ui-datatable-tfoot>tr>td, .ui-datatable .ui-datatable-data>tr>td {
+    border-style:none;
+}
+.ui-datatable .ui-datatable-thead>tr>th{
+    background: -webkit-linear-gradient(#fafafa, #f0f0f0); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fafafa, #f0f0f0); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fafafa, #f0f0f0); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fafafa, #f0f0f0); /* 标准的语法 */
+}
+body .ui-widget-content{
+    border:0px;
+    border-top: 1px solid #ddd;
+}
+body .ui-datatable .ui-datatable-data tr.ui-datatable-even{
+    background: #fff;
+}
+body .ui-datatable .ui-datatable-data tr:hover {
+    background: #e2f4fc;
+}

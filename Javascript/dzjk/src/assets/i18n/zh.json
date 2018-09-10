@@ -1,12 +1,24 @@
 {
   "supplier": {
+    "index": "序号",
     "supplierDetails": "监控详情",
     "startTime": "开始时间",
     "endTime": "结束时间",
-    "status": "状态",
-    "supplierName": "服务商名称"
+    "status": "状态",    
+    "search": "搜索",
+    "export": "导出列表",
+    "supplierName": "服务商全称",
+    "supplierCode": "服务商代码",
+    "supplierLevel": "售后建店等级",
+    "provinceCode": "区域代码",
+    "quantity": "发送数量",
+    "sussesQuantity": "成功数量",
+    "errorQuantity": "失败数量",
+    "uploadDate": "上传时间",
+    "message": "错误描述"
   },
   "globalLayout": {
+    "supplierDetails": "服务商详情",
     "dashboard": "仪表盘",
     "inventoryControl": "库存管理",
     "baseData": "基础资料",

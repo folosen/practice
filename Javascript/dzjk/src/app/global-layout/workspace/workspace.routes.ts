@@ -8,7 +8,7 @@ export const workspaceRoutes = [
       { path: '', redirectTo: 'supplier', pathMatch: 'full' },
       {
         path: 'supplier',
-        loadChildren: '../../bz-modules/supplier/supplier.module#supplierModule'
+        loadChildren: '../../bz-modules/supplier/supplier.module#SupplierModule'
       },
       {
         path: 'dashboard',
