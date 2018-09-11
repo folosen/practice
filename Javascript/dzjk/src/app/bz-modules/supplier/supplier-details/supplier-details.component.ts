@@ -11,6 +11,8 @@ export class SupplierDetailsComponent implements OnInit {
   public items: Array<any>;
   public tbFirst = 0;
   public totalRecords = 0;
+  public sumNmber = 100;
+  public errorNumber = 80;
   public pageConfig = {totalNum: 1000, curPage: 1};
   public supplierStatus = {name: '全部', value: -1};
   public status = [{name: '全部', value: -1}, {name: '成功', value: 1}, {name: '失败', value: 0}];
@@ -47,6 +49,8 @@ export class SupplierDetailsComponent implements OnInit {
   }
 
   public searchData() {
+    let element = document.getElementsByClassName('ui-paginator-first')[0] as HTMLElement;
+    element.click();
     this.pageConfig = {totalNum: 2000, curPage: 3};
     console.log('search');
     this.items = [
@@ -90,5 +94,8 @@ export class SupplierDetailsComponent implements OnInit {
   }
   public getPageData($event) {
     console.log($event);
+  }
+  public repairSupplier($id) {
+    console.log($id);
   }
 }

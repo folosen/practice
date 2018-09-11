@@ -2212,6 +2212,10 @@ p-togglebutton.ng-dirty.ng-invalid .ui-button {
 /* 表格自定义 */
 .ui-datatable .ui-datatable-thead>tr>th, .ui-datatable .ui-datatable-tfoot>tr>td, .ui-datatable .ui-datatable-data>tr>td {
     border-style:none;
+    text-align: center;
+}
+body .ui-datatable .ui-datatable-thead > tr > th, body .ui-datatable .ui-datatable-tfoot > tr > td {
+    padding: 1em;
 }
 .ui-datatable .ui-datatable-thead>tr>th{
     background: -webkit-linear-gradient(#fafafa, #f0f0f0); /* Safari 5.1 - 6.0 */
@@ -2231,4 +2235,22 @@ body .ui-datatable .ui-datatable-data tr:hover {
 }
 body .ui-datatable .ui-paginator {
     text-align: right;
+}
+/* 分页器样式 */
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active{
+    background: transparent;
+    color: #4fb7c7;
+    border: 1px solid #4fb7c7;
+}
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active:hover{
+    opacity: 0.8;
+    background: #F4F3F4;
+}
+body .ui-paginator .ui-paginator-pages .ui-paginator-page {
+    padding: 0.5em 0.5em;
+    text-align: center;
+}
+body .ui-paginator .ui-paginator-pages {
+    position: relative;
+    top: 2px;
 }

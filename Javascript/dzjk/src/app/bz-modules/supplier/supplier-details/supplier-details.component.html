@@ -30,6 +30,11 @@
     </form>
     <div class="row">
       <div class="col-xs-12">
+          <p class="errorMsg">{{errorNumber}}/{{sumNmber}}<a>查看失败原因</a></p>
+      </div>      
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
         <div class="suppliers-item-container">
           <p-dataTable [value]="items" [rows]="10" [paginator]="true" [lazy]="true" (onLazyLoad)="loadCarsLazy($event)" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" dataKey="index" [first]="tbFirst" [totalRecords]="totalRecords">
             <p-column field="asc_name" header="{{'supplier.supplierName' | translate}}" [sortable]="false" [style]="{'width':'300px'}"></p-column>
@@ -43,8 +48,7 @@
             <p-column field="error_desc" header="{{'supplier.message' | translate}}" [sortable]="false"></p-column>
             <p-column header="{{'operate' | translate}}">
                 <ng-template let-item="rowData" pTemplate="body">
-                    <button type="button" class="btn btn-success" (click)="receiptDetail()">{{'editItem' | translate}}</button>
-                    <button type="button" class="btn btn-danger" (click)="printReceipt()">{{'print' | translate}}</button>
+                    <button type="button" class="btn btn-success" (click)="repairSupplier(this)">修复</button>
                 </ng-template>
             </p-column>
           </p-dataTable>

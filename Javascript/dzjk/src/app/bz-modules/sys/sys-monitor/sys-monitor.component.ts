@@ -9,60 +9,59 @@ export class SysMonitorComponent implements OnInit {
 
 
   public pieChart = {
-    theme: '',
-    event: [
-      {
-        type: "click",
-        cb: function (res) {
-          console.log(res);
-        }
-      }
-    ],
-    title: {
-      text: 'NiceFish访问用户地区分布',
-      subtext: '纯属虚构',
-      x: 'center'
-    },
-    tooltip: {
-      trigger: 'item',
-      formatter: "{a} <br/>{b} : {c} ({d}%)"
-    },
-    legend: {
-      orient: 'vertical',
-      left: 'left',
-      data: ['深圳', '北京', '广州', '上海', '长沙']
-    },
-    series: [{
-      name: '访问来源',
-      type: 'pie',
-      startAngle: -180,
-      radius: '55%',
-      center: ['50%', '60%'],
-      data: [{
-        value: 3350,
-        name: '深圳'
-      }, {
-        value: 310,
-        name: '北京'
-      }, {
-        value: 234,
-        name: '广州'
-      }, {
-        value: 135,
-        name: '上海'
-      }, {
-        value: 1548,
-        name: '长沙'
-      }],
-      itemStyle: {
-        emphasis: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
-        }
-      }
-    }]
-  };
+        tooltip: {
+            formatter: function (params) {
+                var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">服务商详细信息</p>'
+                return info;
+            },
+            backgroundColor: "#ff7f50",//提示标签背景颜色
+            textStyle: { color: "#fff" } //提示标签字体颜色
+        },
+        dataRange: {
+            x: 'left',
+            y: '600px',
+            splitList: [
+                {start: 6, end: 6, label: '异常', color: '#f42d05'},
+                {start: 8, end: 8, label: '部分异常', color: '#f9a400'},
+                {start: 10, end: 10, label: '正常', color: '#00b503'},
+            ],
+            color: ['#E0022B', '#E09107', '#A3E00B']
+        },
+        series: [
+            {
+                name: '中国',
+                type: 'map',
+                mapType: 'china',
+                clickable:false,
+                // selectedMode: 'multiple',
+                label: {
+                    normal: {
+                        show: true,//显示省份标签
+                        // textStyle:{color:"#c71585"}//省份标签字体颜色
+                    },
+                    emphasis: {
+                        show: true,//对应的鼠标悬浮效果
+                        // textStyle:{color:"#800080"}
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderWidth: .5,//区域边框宽度
+                        borderColor: '#BDAFAD',//区域边框颜色
+                        areaColor:"#F4F3EF",//区域颜色
+                    },
+                    emphasis: {
+                        borderWidth: .5,
+                        borderColor: '#4b0082',
+                        areaColor: "#ffdead"
+                    }
+                },
+                data: [{ name: '北京' }, { name: '天津' }, { name: '上海', value: 10 }, { name: '重庆' }, { name: '河北' }, { name: '河南', value: 6 }, { name: '云南' }, { name: '辽宁' }, { name: '黑龙江' }, { name: '湖南', value: 6 }, { name: '安徽', value: 8 }, { name: '山东', value: 10 },
+                        { name: '新疆' }, { name: '江苏' }, { name: '浙江', value: 10 }, { name: '江西', value: 8 }, { name: '湖北' }, { name: '广西' }, { name: '甘肃' }, { name: '山西' }, { name: '内蒙古' }, { name: '陕西' }, { name: '吉林' }, { name: '福建', value: 10 }, { name: '贵州' },
+                        { name: '广东' }, { name: '青海' }, { name: '西藏' }, { name: '四川' }, { name: '宁夏' }, { name: '海南' }, { name: '台湾' }, { name: '香港' }, { name: '澳门' }]
+            }
+        ]
+    };
 
   barChart = {
     title: {

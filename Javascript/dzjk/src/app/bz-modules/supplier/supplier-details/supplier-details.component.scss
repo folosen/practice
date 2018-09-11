@@ -14,3 +14,10 @@ form .download{
     float: right;
     margin: 0px;
 }
+.errorMsg {
+    text-align: right;
+}
+.errorMsg a{
+    margin-left: 10px;
+    cursor: pointer;
+}
