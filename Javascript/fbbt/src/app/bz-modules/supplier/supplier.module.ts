@@ -8,6 +8,7 @@ import { CalendarModule } from 'primeng/components/calendar/calendar';
 import { DropdownModule } from 'primeng/components/dropdown/dropdown';
 import { TabViewModule } from 'primeng/components/tabview/tabview';
 import {InputTextModule} from 'primeng/inputtext';
+import {PaginatorModule} from 'primeng/paginator';
 
 import { SupplierDetailsComponent } from './supplier-details/supplier-details.component';
 import { supplierRoutes } from './supplier.routes';
@@ -22,6 +23,7 @@ import { PaginationComponent } from './pagination/pagination.component';
         DropdownModule,
         TabViewModule,
         InputTextModule,
+        PaginatorModule,
         RouterModule.forChild(supplierRoutes)
     ],
     declarations: [

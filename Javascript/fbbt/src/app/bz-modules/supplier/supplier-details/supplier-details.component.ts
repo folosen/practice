@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 @Component({
   selector: 'supplier-details',
   templateUrl: './supplier-details.component.html',
@@ -61,6 +62,8 @@ export class SupplierDetailsComponent implements OnInit {
     ];
     this.totalRecords = 50;
     this.tbFirst = 0;
+    let element = document.getElementsByClassName('ui-paginator-first')[0] as HTMLElement;
+    element.click();
     console.log(this.supplierStatus);
   }
 
@@ -86,6 +89,7 @@ export class SupplierDetailsComponent implements OnInit {
       {'asc_name': '上海怡通汽车销售服务有限公司浦东分公司', 'asc_code': '4102028', 'level': '1-标准服务商', 'provincecode': '310115013243', 'quantity': '100', 'snum': '88', 'fnum': '12', 'start_time': '2018.10.1', 'error_desc': '等待'},
       {'asc_name': '上海怡通汽车销售服务有限公司浦东分公司', 'asc_code': '4102028', 'level': '1-标准服务商', 'provincecode': '310115013243', 'quantity': '100', 'snum': '88', 'fnum': '12', 'start_time': '2018.10.1', 'error_desc': '888'}
     ];
+    console.log(this.tbFirst)
     console.log($event);
   }
   public getPageData($event) {
