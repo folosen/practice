@@ -1,0 +1,25 @@
+<div class="container-flud login-screen">
+    <div class="login-form-container">
+        <h3 class="center-block sys-title">电子健康证</h3>
+        <form #form="ngForm"  (ngSubmit)="onSubmit(form.value, form.valid)" novalidate class="form-horizontal login-form" role="form">
+            <div class="form-group" [ngClass]="{ 'has-error': form.submitted && !userName.valid }">
+                <div class="col-xs-12">
+                    <input required name="userName" [(ngModel)]="user.userName" #userName="ngModel" type="text" class="form-control" placeholder="username">
+                    <div *ngIf="form.submitted && !userName.valid" class="text-danger">{{'userLogin.userNameDanger' | translate}}</div>
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': form.submitted && !password.valid }">
+                <div class="col-xs-12">
+                    <input required minlength="6" [(ngModel)]="user.password" name="password" #password="ngModel" type="password" class="form-control"
+                        placeholder="password">
+                    <div *ngIf="form.submitted && !password.valid" class="text-danger">{{'userLogin.passWordDanger' | translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success btn-block">{{'userLogin.login' | translate}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

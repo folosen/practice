@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="text-center">{{inboundDetail.title}}</h3>
+    <form class="form-inline">
+      <div class="form-group col-xs-4">
+        <label>{{'inboundAndOutbound.receiptNo' | translate}}：</label>
+        <p class="form-control-static">{{inboundDetail.receiptNo}}</p>
+      </div>
+      <div class="form-group col-xs-4">
+        <label>{{'inboundAndOutbound.waybillNo' | translate}}：</label>
+        <p class="form-control-static">{{inboundDetail.waybillNo}}</p>
+      </div>
+      <div class="form-group col-xs-4">
+        <label>{{'inboundAndOutbound.inboundTime' | translate}}：</label>
+        <p class="form-control-static">{{inboundDetail.inboundTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+      </div>
+    </form>
+
+    <table class="table table-bordered detail-table">
+      <thead>
+        <tr>
+          <th>{{'inboundAndOutbound.index' | translate}}</th>
+          <th>{{'inboundAndOutbound.vendor' | translate}}</th>
+          <th>{{'inboundAndOutbound.productName' | translate}}</th>
+          <th>{{'inboundAndOutbound.specificat' | translate}}</th>
+          <th>{{'inboundAndOutbound.model' | translate}}</th>
+          <th>{{'inboundAndOutbound.origin' | translate}}</th>
+          <th>{{'inboundAndOutbound.number' | translate}}</th>
+          <th>{{'inboundAndOutbound.itemUnit' | translate}}</th>
+          <th>{{'inboundAndOutbound.price' | translate}}</th>
+          <th>{{'inboundAndOutbound.sum' | translate}}</th>
+          <th>{{'inboundAndOutbound.warehouse' | translate}}</th>
+          <th>{{'inboundAndOutbound.cellNo' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of inboundDetail.items">
+          <th scope="row">{{item.index}}</th>
+          <td>{{item.vendor}}</td>
+          <td>{{item.itemName}}</td>
+          <td>{{item.spec}}</td>
+          <td>{{item.model}}</td>
+          <td>{{item.producerLocation}}</td>
+          <td>{{item.num}}</td>
+          <td>{{item.unit}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.sum}}</td>
+          <td>{{item.warehouse}}</td>
+          <td>{{item.storeCell}}</td>
+        </tr>
+        <tr>
+          <td colspan="12">请扫描货品</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form class="form-inline">
+      <div class="form-group col-xs-4">
+        <label>{{'inboundAndOutbound.handlerName' | translate}}：</label>
+        <label class="form-control-static">{{inboundDetail.handlerName}}</label>
+      </div>
+      <div class="form-group col-xs-4">
+        <label>{{'inboundAndOutbound.acceptor' | translate}}：</label>
+        <label class="form-control-static">{{inboundDetail.acceptor}}</label>
+      </div>
+      <div class="form-group col-xs-4">
+        <label>{{'inboundAndOutbound.deliveryman' | translate}}：</label>
+        <label class="form-control-static">{{inboundDetail.deliveryman}}</label>
+      </div>
+    </form>
+
+    <form class="form-inline">
+      <div class="form-group col-xs-12">
+        <button type="button" class="btn btn-success" (click)="returnToTable()">{{'return' | translate}}</button>
+        <button type="button" class="btn btn-danger" (click)="printReceipt()">{{'print' | translate}}</button>
+      </div>
+    </form>
+  </div>
+</div>
