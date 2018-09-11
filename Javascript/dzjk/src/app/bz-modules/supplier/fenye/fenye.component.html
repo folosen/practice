@@ -1,0 +1,24 @@
+<div class="fenye">
+  <ul class="pagination">
+      <li>
+          <span style="padding: 8px 6px;margin-right: 3px;background: none;border: 0px;color: #333;">共{{_total}}条</span>
+          <select (change)="setSize($event)" [value]="size" class="form-control input-sm" style="float:left;width:95px;margin-right:5px;">
+              <option value="{{sizeOptionItem}}" *ngIf="sizeOptionItem>0">{{sizeOptionItem}}条/页</option>
+              <option value="10">10条/页</option>
+              <option value="20">20条/页</option>
+              <option value="30">30条/页</option>
+              <option value="40">40条/页</option>
+              <option value="50">50条/页</option>
+              <option value="100">100条/页</option>
+          </select>
+      </li>        
+      <li [ngClass]="{'disabled':isFirst}"><a aria-label="Previous" (click)="prev()"><span aria-hidden="true">&laquo;</span></a></li>
+      <li *ngFor="let item of nums" [ngClass]="{'active':item==page}"><a (click)="setPage(item)">{{item}}</a></li>
+      <li [ngClass]="{'disabled':isLast}">
+          <a aria-label="Next" (click)="next()">
+          <span aria-hidden="true">&raquo;</span>
+          </a>
+      </li>
+      <li><span style="padding: 0px 15px;margin-left: 5px;background: #fff;">前往 <input type="text" class="redirect" value="{{page}}" (change)="jump($event)" style="outline: none;width: 35px;height: 29px;border: 1px solid #e0e0e0;text-align: center;border-top: 0px;padding: 4px 0px;border-bottom: 0px;"> 页</span></li>
+  </ul>
+</div>

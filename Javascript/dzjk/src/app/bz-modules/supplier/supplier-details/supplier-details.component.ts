@@ -11,7 +11,7 @@ export class SupplierDetailsComponent implements OnInit {
   public items: Array<any>;
   public tbFirst = 0;
   public totalRecords = 0;
-  public pageConfig = {totalNum: 100, curPage: 1};
+  public pageConfig = {totalNum: 1000, curPage: 1};
   public supplierStatus = {name: '全部', value: -1};
   public status = [{name: '全部', value: -1}, {name: '成功', value: 1}, {name: '失败', value: 0}];
   constructor() { }
@@ -47,6 +47,7 @@ export class SupplierDetailsComponent implements OnInit {
   }
 
   public searchData() {
+    this.pageConfig = {totalNum: 2000, curPage: 3};
     console.log('search');
     this.items = [
       {'asc_name': '上海怡通汽车销售服务有限公司浦东分公司', 'asc_code': '4102028', 'level': '1-标准服务商', 'provincecode': '310115013243', 'quantity': '100', 'snum': '88', 'fnum': '12', 'start_time': '2018.10.1', 'error_desc': '成功'},
@@ -85,6 +86,9 @@ export class SupplierDetailsComponent implements OnInit {
       {'asc_name': '上海怡通汽车销售服务有限公司浦东分公司', 'asc_code': '4102028', 'level': '1-标准服务商', 'provincecode': '310115013243', 'quantity': '100', 'snum': '88', 'fnum': '12', 'start_time': '2018.10.1', 'error_desc': '等待'},
       {'asc_name': '上海怡通汽车销售服务有限公司浦东分公司', 'asc_code': '4102028', 'level': '1-标准服务商', 'provincecode': '310115013243', 'quantity': '100', 'snum': '88', 'fnum': '12', 'start_time': '2018.10.1', 'error_desc': '888'}
     ];
+    console.log($event);
+  }
+  public getPageData($event) {
     console.log($event);
   }
 }

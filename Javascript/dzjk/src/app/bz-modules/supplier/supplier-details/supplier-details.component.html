@@ -53,6 +53,7 @@
       </div>
     </div>
     <div class="page-row">
+      <fenye [page]="pageConfig.curPage" [size]="pageConfig.curPage" [total]="pageConfig.totalNum" (callback)="getPageData($event)"></fenye>
       <pagination (changeCurPage)="getPageData($event)" [totalNum]="pageConfig.totalNum" [curPage]="pageConfig.curPage"></pagination>
     </div>
   </div>
