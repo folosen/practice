@@ -30,7 +30,7 @@ export class SysMonitorComponent implements OnInit {
         series: [
             {
                 name: '中国',
-                type: 'map',
+                type: 'bmap',
                 mapType: 'china',
                 clickable:false,
                 // selectedMode: 'multiple',
@@ -140,5 +140,11 @@ export class SysMonitorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let myChart = echarts.init(document.getElementById('container'));
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(this.pieChart);
+    myChart.on('click', function(param) {
+        console.log(param);//重要的参数都在这里！
+    });
   }
 }
